@@ -1,2 +1,2 @@
-# LPatividades
- repositorio focado em resoluções das atividades de Logica da Programação
+# Atividades de Lógica da Programação
+ Repositório focado em resoluções das atividades de Lógica da Programação
