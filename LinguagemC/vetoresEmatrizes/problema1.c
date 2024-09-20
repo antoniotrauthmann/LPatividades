@@ -6,7 +6,7 @@ int main(){
     int numero_dias=0,sinal_alertaph=0,sinal_alerta_temperatura=0,dias_acima_temperatura=0;
     int t=0;
     float ph_diario[dias];
-    float temperatura[horas],temperatura_media,soma_temperaturas = 0;
+    float temperatura[horas],temperatura_media,soma_temperaturas;
     char op;
    
     do
@@ -35,8 +35,10 @@ int main(){
                 printf("temperatura acima do permitido\nemitindo sinal de alerta...\n");
                 sinal_alerta_temperatura++;
             }
+
             soma_temperaturas += temperatura[i]; 
             temperatura_media = soma_temperaturas/horas;
+
             if (temperatura_media > 95)
             {
                 dias_acima_temperatura++;
@@ -45,11 +47,11 @@ int main(){
         } 
         
         numero_dias++;
-        printf("a temperatura media foi de: %f",temperatura_media);
+        printf("a temperatura media foi de: %.2f\n",temperatura_media);
         printf("deseja continuar? digite s ou n\n");
         scanf(" %c",&op);
 
-    } while (op == 's');
+    } while (op == 's' && numero_dias <5 );
 
     printf("numero de dias de auditoria:%d\n",numero_dias);
     printf("numero de sinais de alerta por temperatura acima de 110 graus:%d\n",sinal_alerta_temperatura);
