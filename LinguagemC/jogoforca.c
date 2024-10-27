@@ -2,7 +2,7 @@
 #include <string.h>
 #include <locale.h>
 
-#define MAX_TAMANHO 20
+#define MAX_TAMANHO 18
 #define MAX_TENTATIVAS 6
 
 int preencheMascara(const char *str, char c, int *mascara) {
