@@ -27,8 +27,8 @@ void inicializar_dados(int* total_pacotes, int* pacotes_palmas, int* pacotes_gur
         if (codigo == 0) break;  // Sai quando o código 0 for inserido
         
         printf("Digite o peso do pacote (kg): ");
-        while (scanf("%d", &peso) != 1 || peso <= 0) {  // Verifica se o peso é um número positivo
-            while(getchar() != '\n');  // Limpa o buffer de entrada
+        while (scanf("%d", &peso) != 1 || peso <= 0) {
+            while(getchar() != '\n');
             printf("Valor invalido. Digite um peso valido (positivo): ");
         }
         
