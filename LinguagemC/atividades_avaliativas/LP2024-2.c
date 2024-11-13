@@ -36,8 +36,7 @@ void inicializar_dados(int* total_pacotes, int* pacotes_palmas, int* pacotes_gur
         scanf("%s", destino);
         
         // Chama a função de registrar pacote
-        registrar_pacote(total_pacotes, pacotes_palmas, pacotes_gurupi, pacotes_goiania, codigos, pesos, destinos, 
-                         codigo, peso, destino);
+        registrar_pacote(total_pacotes, pacotes_palmas, pacotes_gurupi, pacotes_goiania, codigos, pesos, destinos, codigo, peso, destino);
     }
 }
 
