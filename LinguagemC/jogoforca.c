@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-
+a
 #define MAX_TAMANHO 18
 #define MAX_TENTATIVAS 6
 
