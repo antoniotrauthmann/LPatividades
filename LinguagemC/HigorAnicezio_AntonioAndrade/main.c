@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "oficina.h"
 #include "servico.h"
+#include "relatorio.h"
 
 veiculo veiculos[max_veiculos];
 int total_veiculos = 0;
@@ -9,6 +10,10 @@ servico servicos[max_servicos];
 int total_servicos = 0;
 
 int main(){
+
+    carregar_veiculos(veiculos, &total_veiculos);
+    carregar_servicos(servicos, &total_servicos);
+
     int opc;
 
     do
@@ -26,6 +31,8 @@ int main(){
 
         switch (opc)
         {
+
+        char nome[50];
         
         case 1:
             cadastrar_veiculo(veiculos,&total_veiculos);
@@ -36,17 +43,17 @@ int main(){
             break;
         
         case 3:
-            char nome[50];
+            
             printf("Digite o nome do proprietario: ");
             scanf(" %49[^\n]", nome);
-            buscar_por_mecanico(servicos, total_servicos, nome);
+            busca_proprietario(servicos, total_servicos, nome);
             break;
         
         case 4:
-            char nome[50];
+            
             printf("Digite o nome do mecanico: ");
             scanf(" %49[^\n]", nome);
-            buscar_por_mecanico(servicos, total_servicos, nome);
+            busca_mecanico(servicos, total_servicos, nome);
             break;
         
         case 5:
@@ -64,21 +71,24 @@ int main(){
             printf("[1]Tipo de Servico.\n");
             printf("[2]Por Mecanico Responsavel.\n");
             printf("[3]Sair.\n");
-            scanf("%d",&opc2);
+            scanf("%d", &opc2);
 
             char str_temp[50];
 
-            switch (opc)
+            switch (opc2)
+
+            
             {
             case 1:
                 printf("Tipo de Servico:\n");
                 scanf(" %49[^\n]",str_temp);
-                //funcao
+                relatorio_servico( servicos, total_servicos, str_temp);
                 break;
             case 2:
                 printf("Nome do Mecanico Responsavel:\n");
                 scanf(" %49[^\n]",str_temp);
-                //funcao
+                relatorio_mecanico(servicos, total_servicos, str_temp);
+
                 break;
             case 3:
                 printf("Saindo do Menu de Relatorio...\n");
@@ -89,9 +99,12 @@ int main(){
                 break;
             }
 
+        break;
+
         default:
             printf("Opcao invalida.\n");
-            break;
+        break;
+
         }
 
     } while (opc !=0 );

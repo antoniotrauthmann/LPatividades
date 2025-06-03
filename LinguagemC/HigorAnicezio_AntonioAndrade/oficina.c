@@ -2,6 +2,30 @@
 #include <string.h>
 #include "oficina.h"
 
+void carregar_veiculos(veiculo veiculos[], int *total_veiculos){
+    FILE *f = fopen("veiculos.txt", "r");
+    
+    if (f == NULL)
+    {
+        *total_veiculos = 0;
+        return;
+    }
+
+    *total_veiculos = 0;
+
+    while (fscanf(f, "%d;%9s;%d;%29[^;];%29[^;];%49[^\n]\n",&veiculos[*total_veiculos].tipo,veiculos[*total_veiculos].placa,&veiculos[*total_veiculos].ano,veiculos[*total_veiculos].modelo,veiculos[*total_veiculos].marca,veiculos[*total_veiculos].proprietario) == 6)
+    {
+        (*total_veiculos)++;
+        if (*total_veiculos >= max_veiculos)
+        {
+            break;
+        }
+        
+    }
+    fclose(f);
+    
+}
+
 void cadastrar_veiculo(veiculo veiculos[],int *total_veiculos){
     
     if (*total_veiculos >= max_veiculos)
@@ -35,7 +59,7 @@ void cadastrar_veiculo(veiculo veiculos[],int *total_veiculos){
         return;
     }
 
-    fprintf(f, "%d %s %d %s %s %s\n",v.tipo, v.placa, v.ano, v.modelo, v.marca, v.proprietario);
+    fprintf(f, "%d;%s;%d;%s;%s;%s\n",v.tipo, v.placa, v.ano, v.modelo, v.marca, v.proprietario);
 
     fclose(f);
 

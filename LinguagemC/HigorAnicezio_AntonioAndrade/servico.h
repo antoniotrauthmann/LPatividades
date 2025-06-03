@@ -15,9 +15,10 @@ typedef struct
     char placa[10];
 }servico;
 
+void carregar_servicos(servico servicos[], int *total_servicos);
 void registro_servico(servico servicos[],int *total_servicos,veiculo veiculos[],int total_veiculos);
 void busca_proprietario(servico servicos[],int total, const char *nome);
-void busca_mecanico(servico servicos[],int total, const char nome);
+void busca_mecanico(servico servicos[],int total, const char *nome);
 void listagem_servicos(servico servicos[],int total_servicos);
 void alterar_servico(servico servicos[], int *total_servicos);
 

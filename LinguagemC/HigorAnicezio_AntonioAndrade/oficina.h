@@ -13,6 +13,7 @@ typedef struct
     char proprietario[50];
 }veiculo;
 
+void carregar_veiculos(veiculo veiculos[], int *total_veiculos);
 void cadastrar_veiculo(veiculo veiculos[],int *total_veiculos);
 int busca_placa(veiculo veiculos[],int total_veiculos, const char *placa);
 
